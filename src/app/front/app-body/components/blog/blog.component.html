@@ -1,0 +1,37 @@
+
+<button class=" btn btn-outline-success fixed-top  " style="max-width: 50em; margin-top: 12rem; margin-left: 100rem;" mat-raised-button (click)="openDialog()">Add new Blog</button>
+<div class="row m-t-40 justify-content-center" style="margin-top: 1rem;">
+  
+
+  <!-- Column -->
+  <div
+    class="col-md-8 no-trans border-bottom mb-4"
+    *ngFor="let bl of listArticles |slice:0:count*6"
+  >
+    <div class="card" data-aos="flip-left" data-aos-duration="1200">
+      <div class="row">
+        <div class="col-md-2 no-trans">
+          <span class="text-dark  font-medium">{{ bl.createdAt }}</span>
+          <h6 class="card-subtitle font-12 mt-1">By John Deo</h6>
+        </div>
+        <div class="col-md-7 no-trans">
+          <h5 class="font-medium cursor-pointer" (click)="viewDetail(bl.idartcile)">
+            {{ bl.title.substring(0, 50) }}..
+          </h5>
+          <p class="m-t-20">
+            {{ bl.description }}
+          </p>
+        </div>
+        <div class="col-md-3 no-trans">
+          <a class="linking font-medium text-themecolor m-t-10 cursor-pointer">
+          <button class="btn btn-light">
+            <span (click)="viewDetail(bl.idartcile)">Show Detail</span>
+            <i class="ti-arrow-right"></i>
+          </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button  type="button" class="btn btn-light" *ngIf="count*4<listArticles.length" (click)="count=count+1">See More...</button>
+</div>

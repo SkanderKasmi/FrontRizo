@@ -1,0 +1,130 @@
+<div style="margin-top: 16rem;">
+<button class="float-right btn btn-primary" mat-raised-button (click)="openDialog()"><mat-icon>note_add</mat-icon></button>
+
+<mat-tab-group  (selectedTabChange)="selectedTabValue($event)">
+  <mat-tab   label="Article settings" >
+
+<div class="w-75 p-3 justify-content-between container-fluid " >
+<mat-form-field class=" w-100"  >
+  <mat-label>Filter</mat-label>
+  <input matInput  (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+
+<table mat-table   [dataSource]="datasource" class="mat-elevation-z8 w-100 text-dark bg-light" >  
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="idartcile" >
+    <th mat-header-cell *matHeaderCellDef class="text-dark">  idartcile. </th>
+    <td mat-cell *matCellDef="let article " class="text-dark">{{article.idartcile}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef class="text-dark"> title </th>
+    <td mat-cell *matCellDef=" let article " class="text-dark"> {{article.title}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="slug">
+    <th mat-header-cell *matHeaderCellDef class="text-dark"> slug </th>
+    <td mat-cell *matCellDef="let article " class="text-dark"> {{article.slug}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef class="text-dark"> Description </th>
+    <td mat-cell *matCellDef="let article "class="text-dark"> {{article.description}} </td>
+  </ng-container>
+  <ng-container matColumnDef="body">
+    <th mat-header-cell *matHeaderCellDef class="text-dark"> body </th>
+    <td mat-cell *matCellDef="let article "class="text-dark"> {{article.body}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef class="text-dark"> Action </th>
+    <td mat-cell *matCellDef="let article of listArticle" >
+      <div class="btn-group" style="max-width: 5rem;">
+        <button  style="margin: 5px;" type="button" class="btn btn-danger btn-sm px-3 " (click)="deleteArticle(article.idartcile)">
+          <i class="fas fa-user-times" style="color: #ffffff;"></i>
+      </button>
+      <button  style="margin: 5px;" type="button" class="btn btn-primary btn-sm px-3 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fas fa-wrench" style="color: #ffffff;"></i>
+      </button>
+    </div>
+     </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</table>
+
+</div>
+   </mat-tab>
+   <mat-tab label="Comment settings" > 
+    <div class="w-75 p-3 justify-content-between container-fluid " >
+      <mat-form-field class="  w-100"  >
+        <mat-label>Filter</mat-label>
+        <input matInput  (keyup)="applyFilter2($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+      
+      <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8 w-100 " >
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="idcommnt">
+          <th mat-header-cell *matHeaderCellDef> idcommnt</th>
+          <td mat-cell *matCellDef="let element "> {{element.idcommnt}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="bodycommt">
+          <th mat-header-cell *matHeaderCellDef> bodycommt </th>
+          <td mat-cell *matCellDef="let element "> {{element.bodycommt}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="CreateAtcommt">
+          <th mat-header-cell *matHeaderCellDef> CreateAtcommt </th>
+          <td mat-cell *matCellDef="let element "> {{element.CreateAtcommt}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+      
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element of listComment" >
+            <div class="btn-group" style="max-width: 5rem;">
+              <button  style="margin: 5px;" type="button" class="btn btn-danger btn-sm px-3 " >
+                <i class="fas fa-user-times" style="color: #ffffff;"></i>
+            </button>
+            <button  style="margin: 5px;" type="button" class="btn btn-primary btn-sm px-3 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fas fa-wrench" style="color: #ffffff;"></i>
+            </button>
+          </div>
+           </td>
+        </ng-container>
+      
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+      
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+      
+      </div> 
+    </mat-tab>
+    <mat-tab label="Stats">
+    
+    </mat-tab>
+</mat-tab-group>
+</div>
