@@ -51,9 +51,9 @@ export class ServiceblogService {
     return this.http.get<Article[]>(this.apiServerUrl + 'article/all',{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
   }
 
-  public addArticle(article:Article): Observable<Article>{
+  public addArticle(article:Article,id:number): Observable<Article>{
     const token = localStorage.getItem('token');
-    return this.http.post<Article>(`${this.apiServerUrl}article/add`,article,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
+    return this.http.post<Article>(`${this.apiServerUrl}article/add/${id}`,article,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
   }
   public UpdateArticle(article:Article): Observable<Article>{
     const token = localStorage.getItem('token');
@@ -100,6 +100,14 @@ export class ServiceblogService {
     const token = localStorage.getItem('token');
     return this.http.get<any>(`${this.apiServerUrl}react/love/${idartcile}`,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
   }
+  public countingforLike(idartcile:number):Observable<any>{
+    const token = localStorage.getItem('token');
+    return this.http.get<any>(`${this.apiServerUrl}react/like/${idartcile}`,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
+  }
+  public countingfordisklike(idartcile:number):Observable<any>{
+    const token = localStorage.getItem('token');
+    return this.http.get<any>(`${this.apiServerUrl}react/dislike/${idartcile}`,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
+  }
   public addcomment(articleId:number,comment:Commentaire,userId:number): Observable<Commentaire>{
     const token = localStorage.getItem('token');
     return this.http.post<Commentaire>(`${this.apiServerUrl}commentaire/add/user/${articleId}/${userId}`,comment,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
@@ -113,6 +121,10 @@ export class ServiceblogService {
     const token = localStorage.getItem('token');
     return this.http.get<Media>(this.apiServerUrl + '/find/title/cover/'+id, {headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
   }
-
-
+  upload(file :File, id:number): Observable<Number>{
+    const token = localStorage.getItem('token');
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    return this.http.post<Number>(`${this.apiServerUrl}/media/upload/db/${id}`,formData,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})})
+    };
 }

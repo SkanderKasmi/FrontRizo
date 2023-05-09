@@ -109,28 +109,29 @@ export class ArticleAdminComponent implements OnInit  {
 
 
 
-function createNewUser(id: number): Article {
-  const title =
-    titles[Math.round(Math.random() * (titles.length - 1))] +
-    ' ' +
-    titles[Math.round(Math.random() * (titles.length - 1))].charAt(0) +
-    '.';
+// function createNewUser(id: number): Article {
+//   const title =
+//     titles[Math.round(Math.random() * (titles.length - 1))] +
+//     ' ' +
+//     titles[Math.round(Math.random() * (titles.length - 1))].charAt(0) +
+//     '.';
 
-  return { 
-    idartcile: id,
-    title:title,
-    tagList:taglist,
-    description:description,
-    body:body,
-    slug:slug,
-    createdAt:createAt,
-    updatedat:updateat,
-    count:count
-};
+//   return { 
+//     idartcile: id,
+//     title:title,
+//     tagList:taglist,
+//     description:description,
+//     body:body,
+//     slug:slug,
+//     createdAt:createAt,
+//     updatedat:updateat,
+//     count:count,
+
+// };
 
     
     
-  };
+  // };
   @Component({
     selector: 'popadd',
     templateUrl: 'PopupAdd.html',
@@ -146,7 +147,7 @@ function createNewUser(id: number): Article {
     
     
     constructor(
-      public dialogRef: MatDialogRef<PopupAdd>,private dataService:ArticleService,private jwtHelper:JwtHelperService) {}
+      public dialogRef: MatDialogRef<PopupAdd>,private dataService:ServiceblogService,private jwtHelper:JwtHelperService) {}
   
     onNoClick(): void {
       this.dialogRef.close();
@@ -162,6 +163,7 @@ function createNewUser(id: number): Article {
         
         this.tilearticle=this.data.title;
         console.log(this.tilearticle);
+        this.obj=response.idartcile;
 
         // Reset the form
         console.log(this.data)
@@ -176,7 +178,32 @@ function createNewUser(id: number): Article {
       });
       
     }
+    obj:number=0;
+    currentFile: any;
+    selectedFiles!: FileList;
+
+    file!: File;
+    selectFile(event:any) {
+      this.selectedFiles = event.target.files;
+    }
+    
+      upload() :File{
+        this.currentFile = this.selectedFiles.item(0);
+        console.log(this.selectedFiles)
+        console.log(this.currentFile)
+        console.log("here ya zebi")
+        this.dataService.upload(this.currentFile,this.obj).subscribe(
+          
+          event => {
+            console.log(event)
+            
+                     console.log("file",event)
+
+          }
+         );
+        return this.file;
+      }
+    }
   
   
   
-  }

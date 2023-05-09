@@ -53,11 +53,13 @@ import { AddJobComponent } from './front/backoffice/job/add-job/add-job.componen
 import { DisplayJobComponent } from './front/backoffice/job/display-job/display-job.component';
 import { AddFormationComponent } from './front/backoffice/formation/add-formation/add-formation.component';
 import { DisplayFormationComponent } from './front/backoffice/formation/display-formation/display-formation.component';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { AddSkillComponent } from './front/backoffice/skills/add-skill/add-skill.component';
 import { DisplaySkillComponent } from './front/backoffice/skills/display-skill/display-skill.component';
 import { DisplayFrontFormationComponent } from './front/backoffice/formation/display-front-formation/display-front-formation.component';
 import { DisplayFrontJobComponent } from './front/backoffice/job/display-front-job/display-front-job.component'
+import { ShComponent } from './front/backoffice/components/sh/sh.component';
+import { EventcrudComponent } from './front/backoffice/components/eventcrud/eventcrud.component';
 
 
 
@@ -94,8 +96,9 @@ import { DisplayFrontJobComponent } from './front/backoffice/job/display-front-j
     DisplayJobComponent,
     AddFormationComponent,
     DisplayFormationComponent,
-
-  
+    ShComponent,
+    EventcrudComponent,
+     
 
     AddSkillComponent,
     DisplaySkillComponent,
@@ -140,6 +143,7 @@ import { DisplayFrontJobComponent } from './front/backoffice/job/display-front-j
     ToastrModule.forRoot(),
     AppRoutingModule,
     NgxPaginationModule,
+    FullCalendarModule,
     RouterModule.forRoot([]),
     JwtModule.forRoot({
       config: {

@@ -27,6 +27,7 @@
                       </div>
                       <div class="form-group">
                         <label for="body">body:</label>
+                        <!-- <textarea type="text" id="body" name="slug" class="form-control" [(ngModel)]="data.body"></textarea> -->
                         <input type="text" id="body" name="slug" class="form-control" [(ngModel)]="data.body">
                       </div>
                   
@@ -43,11 +44,13 @@
       </mat-step>
       <mat-step  label="Add Your Media">
         <form >
-          <mat-form-field appearance="fill">
-            <mat-label>Address</mat-label>
-            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                   required>
-          </mat-form-field>
+          
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Upload your Image</label>
+              <input class="form-control" type="file" id="formFile" formControlName="file" (change)="selectFile($event);upload()">
+
+            </div>
+         
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>

@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   hidelinkk !:boolean
   hidelink!:boolean
   hiden!:boolean
+  hidell!:boolean
   constructor(private router:Router, private jwt:JwtHelperService) { }
 
   ngOnInit(): void {
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
     console.log(role+"role")
     if(role=="USER"){this.hidelinkk = true}else{this.hidelinkk =false}
     if(role=="ADMIN") {this.hiden = false} else{this.hiden =false}
+    if(role=="ADMIN") {this.hidell = true} else{this.hidell =false}
   }
   logout(){
     localStorage.clear();

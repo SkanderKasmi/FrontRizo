@@ -24,6 +24,10 @@ export class BlogDetailComponent implements OnInit {
   article :Article = new Article;
   comments:Commentaire[]=[];
   lovecountpost:number=0;
+  likecountpost:number=0;
+  dislikecountpost:number=0;
+  name:string= ";"
+  first:string="";
   title:string='';
   react : React = new React;
   constructor(activatedRouter: ActivatedRoute, public service: ServiceblogService, public router: Router, private jwtHelper:JwtHelperService) {
@@ -31,14 +35,20 @@ export class BlogDetailComponent implements OnInit {
     
     
   }
+  
 
   ngOnInit(): void {
      this.service.findbyidArticle(this.id).subscribe((r:any)=>{
       this.article=r;  
       this.title=this.article.title;
+      this.name=this.article.user.lastName;
+      this.first=this.article.user.firstName;
+      
      
     this.service.findAllCommentsCli(this.id).subscribe((d:any)=>this.comments=d);
-    this.service.countingforLove(this.id).subscribe((d:any)=>this.lovecountpost);
+    this.service.countingforLove(this.article.idartcile).subscribe((d:any)=>this.lovecountpost=d);
+    this.service.countingforLike(this.article.idartcile).subscribe((d:any)=>this.likecountpost=d);
+    this.service.countingfordisklike(this.article.idartcile).subscribe((d:any)=>this.dislikecountpost=d);
     
      })}
 
@@ -56,6 +66,7 @@ export class BlogDetailComponent implements OnInit {
   token : any = localStorage.getItem('token');
   decodedToken =this.jwtHelper.decodeToken(this.token);
   iduser:number= this.decodedToken.userId;
+
   onSubmit(idartcile:number) {
     console.log(this.iduser);
     this.service.addcomment(idartcile,this.data,this.iduser).subscribe((d:any) => {

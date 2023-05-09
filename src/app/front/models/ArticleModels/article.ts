@@ -1,3 +1,5 @@
+import { UpdateProfile } from "../update-profile";
+
 export class Article {
     idartcile: number = 0 ;
     title: string = "";
@@ -8,4 +10,5 @@ export class Article {
     slug : string = "";
     count : number = 0 ;
     body : string = "";
+    user : UpdateProfile = new UpdateProfile;
 }

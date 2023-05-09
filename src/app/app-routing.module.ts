@@ -28,6 +28,7 @@ import { DisplayJobComponent } from './front/backoffice/job/display-job/display-
 import { DisplayFrontJobComponent } from './front/backoffice/job/display-front-job/display-front-job.component';
 import { DisplayFormationComponent } from './front/backoffice/formation/display-formation/display-formation.component';
 import { DisplayFrontFormationComponent } from './front/backoffice/formation/display-front-formation/display-front-formation.component';
+import { EventcrudComponent } from './front/backoffice/components/eventcrud/eventcrud.component';
 
 
 
@@ -44,11 +45,11 @@ const routes: Routes = [
   {path:'donnation/:id', component: AddDonationComponent },
   {path:'add',component:AddDonationComponent},
   {path:'histDon', component:HistoryDonnationComponent },
-  {path:'viewfrontformation',component:DisplayFrontFormationComponent},
-  {path:'viewfrontjob',component:DisplayFrontJobComponent},
+  {path:'viewformation',component:DisplayFrontFormationComponent},
+  {path:'viewjob',component:DisplayFrontJobComponent},
   {path:'viewskill',component:DisplaySkillComponent},
-  {path:'skill',component:AddSkillComponent},
- 
+  
+  
   {path : 'articlesdetail/:idartcile',component:BlogDetailComponent},
     //components of inside the app "product,event,formation..."
      
@@ -64,7 +65,8 @@ const routes: Routes = [
     {path:'job',component:AddJobComponent},
     {path:'formation',component:AddFormationComponent},
     {path:'viewformation',component:DisplayFormationComponent},
-    {path:'viewjob',component:DisplayJobComponent}
+    {path:'viewjob',component:DisplayJobComponent},
+    {path: 'event' , component:EventcrudComponent}
   ]},
 
 {path:'forgotpassword',component:ForgotpasswordComponent},

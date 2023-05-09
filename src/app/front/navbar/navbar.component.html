@@ -26,9 +26,17 @@
           <li><a class="nav-link scrollto" [hidden]="hidelink" routerLink="articles">Blog</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a [hidden]="hidelink"  routerLink="products">Products</a></li>
-          <li><a class="nav-link scrollto" [hidden]="hidelink" routerLink="/shop" routerLinkActive="active">Shop</a></li>
-          <li><a class="nav-link scrollto" [hidden]="hidelink" href="#departments" routerLinkActive="active">Cart</a></li>
-          <li><a class="nav-link scrollto" [hidden]="hidelink" href="#departments" routerLinkActive="active">Events</a></li>
+          <li><a class="nav-link scrollto" [hidden]="hidelink" routerLink="/shop" routerLinkActive="active">Shop</a></li>    
+          <li class="dropdown" [hidden]="hidelink" ><a href="#"><span>Formation</span> <i class="bi bi-chevron-down"></i></a>
+       <ul>
+         <li><a [hidden]="hidell" routerLink="viewskill">Skill</a></li>
+         <li><a [hidden]="hiden" routerLink="viewformation">Formations</a></li>
+         <li><a [hidden]="hiden" routerLink="viewjob">Job</a></li>
+         <li><a [hidden]="hidelinkk" routerLink="formation">Add Formation</a></li>
+         <li><a [hidden]="hidelinkk" routerLink="job">Job Gestion</a></li>
+       </ul>
+     </li>
+          <li><a class="nav-link scrollto" [hidden]="hidelink" [hidden]="hidelinkk" href="#departments" routerLink="event" routerLinkActive="active">Events</a></li>
           <li [hidden]="hidelink" class="dropdown"><a   href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Clothes</a></li>
