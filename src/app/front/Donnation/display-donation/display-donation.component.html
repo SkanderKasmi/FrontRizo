@@ -1,0 +1,112 @@
+
+<head>
+
+</head>
+<body>
+  <div class="wrapper" style="margin-top: 11%;">
+ 
+  <hr>
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          
+          <h1>Liste des Donations</h1>
+          <br>
+          <form class="form-inline mb-4">
+            <input type="search" (ngModelChange)="search(key.value)" #key="ngModel" ngModel
+                   name="key" id="searchName" class="form-control mr-sm-2 flex-grow-1" placeholder="Search ..." required>
+            <select id="category" class="form-control mr-sm-2 flex-grow-1" name="mySelect" [(ngModel)]="selectedTyp" (change)="onSelectType()">
+              <option value="">All type</option>
+              <option class="amount" value="money">Monnaie</option>
+              <option value="object">object </option>
+            </select>
+            <i class="fas fa-filter mr-2"></i>
+
+            <label class="mr-sm-8" for="dateDebut">From:</label>
+            <input type="date"[(ngModel)]="fromDate" id="dateDebut" name="dateDebut" class="form-control" required />
+            <label class="mr-sm-2" for="dateFin" >To:</label>
+            <input type="date" [(ngModel)]="toDate" id="dateFin" name="dateFin" class="form-control" required  />
+            <button (click)="filterData()" class="btn btn-primary">Search</button>
+          </form>
+         
+          <table class="table">
+            <thead>
+                              <tr>
+                                
+     <tr>
+    <th>Frequency</th> 
+    <th>ObjectType</th> 
+    <th>Description</th> 
+    <th>Amount</th> 
+    <th>Date</th> 
+    <th>Status</th> 
+    <th>Action</th> 
+    <th>Info</th> 
+  </tr>
+                          
+                            </thead>
+                            <tbody *ngFor="let c of filteredDonations | paginate:{
+                              itemsPerPage:tablesize,
+                              currentPage:page,
+                              totalItems:count}; let i=index">
+                              <tr>
+                                <td>{{c.frequence}}</td>
+                                <td>{{c.typeObjet}}</td>
+                                <td>{{c.description}}</td>
+                                 
+                                <td  data-donation-amount="50-99" >  <i class="fas fa-donate icon-donation"></i>
+                                  {{c.montant}} </td>
+                                <td>{{c.date}}</td>
+                                <td [ngStyle]="{ color: getColor(c.status)}" *ngIf="c.status == 'Available' " [routerLink]="['/']" (click)="AffecterDon(c.idDon)">{{c.status}}</td>
+                                <td [ngStyle]="{ color: getColor(c.status)}" *ngIf="c.status == 'Assign'">{{c.status}}</td>         
+                                <td><button type="button" class="btn btn-primary btn-sm mr-2" (click)="deleteDon(c.idDon)"><i>Delete</i></button></td>
+                                <td><a *ngIf="c.personne!== null" data-toggle="collapse" href="#collapseExample{{c.idDon}}" role="button" aria-expanded="false" [attr.aria-controls]="'collapseExample' + c.idDon">Info</a></td>
+                             
+                              </tr>
+                              <tr>
+                                <td colspan="8" *ngIf="c.personne!== null">
+                                  <div style="width: 100%;" class="collapse" id="collapseExample{{c.idDon}}">
+                                   <div class="text-center">
+                                    <div class="donataire">
+                                      <h3>
+                                      The recipient <span class="nom"> {{ c.personne.firstName }} {{ c.personne.lastName }}</span> has received the donation successfully.</h3>
+                                      <span class="success-icon">&#10003;</span>
+                                      
+                                    </div>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+
+                          </table> 
+                  <pagination-controls     previousLabel="Perv"
+                  nextLabel="Next"
+                  (pageChange)="ontabledatachange($event)">
+                
+                  </pagination-controls>
+                
+               </div>
+      
+    </div>
+  </div>
+</div>
+  </body>
+
+
+
+
+     <script>
+       const searchInput = document.getElementById('search');
+       const categorySelect = document.getElementById('category');
+       const priceSelect = document.getElementById('price');
+       const tableRows = document.querySelectorAll('tbody tr');
+ 
+       // Ajoute des événements pour filtrer le tableau
+       searchInput.addEventListener('input', filterTable);
+       categorySelect.addEventListener('change', filterTable);
+       priceSelect.addEventListener('change', filterTable);
+ 
+       function filterTable() {
+         const searchValue = searchInput.value.trim
+       }      </script>

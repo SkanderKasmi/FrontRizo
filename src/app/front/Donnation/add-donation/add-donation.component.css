@@ -1,0 +1,45 @@
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  .label{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: auto;
+    font-size: xx-large;
+
+  }
+  .input{
+   text-size-adjust: 500px
+   ;
+  }
+  .card-user {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+  }
+
+  input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent  no-repeat right center;
+    background-size: 20px;
+    padding-right: 30px;
+  }

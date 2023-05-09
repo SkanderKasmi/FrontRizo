@@ -1,0 +1,40 @@
+.dialog {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 400px;
+  }
+  
+  .dialog h2 {
+    font-size: 1.2em;
+    margin-top: 0;
+  }
+  
+  .dialog p {
+    font-size: 1em;
+    margin: 0 0 10px;
+  }
+  
+  .dialog .info-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1em;
+  }
+  
+  .dialog .info-button:hover {
+    background-color: #0069d9;
+  }
+  
+  .dialog .info-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .filter-block{
+    align-items: flex-start;
+  }

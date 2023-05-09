@@ -16,6 +16,10 @@ import { AdminuserComponent } from './front/backoffice/components/adminuser/admi
 import { BlogComponent } from './front/app-body/components/blog/blog.component';
 import { BlogDetailComponent } from './front/app-body/components/blog/blog-detail/blog-detail.component';
 import { ArticleAdminComponent } from './front/backoffice/components/article-admin/article-admin.component';
+import { AddDonationComponent } from './front/Donnation/add-donation/add-donation.component';
+import { HistoryDonnationComponent } from './front/Donnation/history-donnation/history-donnation.component';
+import { DisplayDonationComponent } from './front/Donnation/display-donation/display-donation.component';
+import { DisplayPersonneComponent } from './front/Personne/display-personne/display-personne.component';
 
 
 
@@ -28,6 +32,10 @@ const routes: Routes = [
 {path:'app',component:AppBodyComponent,canActivate:[UserGuard],children:[
   {path:'profile',component:ProfileComponent},
   {path: 'articles' , component:BlogComponent},
+  {path:'Donation',component:AddDonationComponent },
+  {path:'donnation/:id', component: AddDonationComponent },
+  {path:'add',component:AddDonationComponent},
+  {path:'histDon', component:HistoryDonnationComponent },
  
   {path : 'articlesdetail/:idartcile',component:BlogDetailComponent},
     //components of inside the app "product,event,formation..."
@@ -38,15 +46,15 @@ const routes: Routes = [
     {path:'profile',component:ProfileComponent},
     {path:'User',component:AdminuserComponent},
     {path:'articles',component:ArticleAdminComponent},
-    
+    {path:'list',component:DisplayDonationComponent},
+    {path:'listD',component:DisplayPersonneComponent},
+    {path:'listD/:id', component:DisplayPersonneComponent },
   ]},
 
 {path:'forgotpassword',component:ForgotpasswordComponent},
 
 {path:'notfound',component:NotFoundComponent},
 {path:'**',component:NotFoundComponent}
-
-
 ];   
 
 

@@ -43,12 +43,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
+import { AddDonationComponent } from './front/Donnation/add-donation/add-donation.component';
+import { DisplayDonationComponent } from './front/Donnation/display-donation/display-donation.component';
+import { DonataireComponent } from './front/Personne/donataire/donataire.component';
+import { DisplayPersonneComponent } from './front/Personne/display-personne/display-personne.component';
+import { PaiementComponent } from './front/Donnation/paiement/paiement.component';
+import { HistoryDonnationComponent } from './front/Donnation/history-donnation/history-donnation.component';
 
 
 
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     HomeComponent,
     HeaderComponent,
@@ -65,7 +72,13 @@ import {MatStepperModule} from '@angular/material/stepper';
     BlogComponent,
     ArticleAdminComponent,
     BlogDetailComponent,
-    PopupAdd
+    PopupAdd,
+    AddDonationComponent, 
+    DisplayDonationComponent, 
+    DonataireComponent,  
+    DisplayPersonneComponent,
+    PaiementComponent,
+    HistoryDonnationComponent,
     
    
 

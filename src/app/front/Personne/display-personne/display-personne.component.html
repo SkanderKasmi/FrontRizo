@@ -1,0 +1,116 @@
+<!-- 
+<div class="page-content page-container  " id="page-content" style="margin-top: 90px; margin-left: 90px; border: 1px;"  >
+    <div class="padding ">
+       
+        <div class="row container d-flex justify-content-center">
+            <div class="col-lg-12 ">
+             <h4 class="card-title">Liste des donataire</h4>
+             <button  type="button"  class="btn btn-primary btn-sm mr-2" (click)="SpringBatch()"> <i >Affectation</i></button>
+          
+             <form>
+                <label for="filter-select">Filtrer par :</label>
+                <select id="filter-select" name="filter" [(ngModel)]="selectedFilter"(change)="filterDonataires()">
+                  <option value="none" selected>Aucun filtre</option>
+                  <option value="older">Plus âgé</option>
+                  <option value="maxscore">Score élevé</option>
+                 
+                </select>
+              </form>
+  <table>
+    
+    <thead >
+  
+      <tr>
+       
+
+        <th>Nom</th>
+        <th>Pernom</th>
+        <th>age</th>
+        <th >nombre d'enfants </th>
+        <th >Diabetique</th>
+        <th>handicapé</th>
+        <th >ZoneSpécifique</th>
+        <th >Score</th>
+
+        <th>Action </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr   *ngFor="let c of donatairesFiltered" >
+          
+            <td>{{c.firstName}}</td>
+            <td>{{c.lastName}}</td>
+            <td>{{c.age}}</td>
+            <td>{{c.numberOfChildren}}</td>
+            <td>{{c.hasDiabetes}}</td>
+            <td>{{c.hasDisability}}</td>
+            <td>{{c.zoneSpecifique}}</td>
+            <td>{{c.scor}}</td>
+            <td  [ngStyle]="{ color: getColor(c.status)}" *ngIf="c.status == 'Disponible'"  >{{c.status}}</td>
+            <button  type="button"  class="btn btn-primary btn-sm mr-2" (click)="Affecter(c.id)"> <i >Affectation</i></button>
+           
+    </tr>
+    </tbody>
+  </table>
+ -->
+ <div class="page-content page-container" id="page-content"  style="margin-top:150px"  >
+  <div class="padding">
+    
+    <div class="row container d-flex justify-content-center">
+      <div class="col-lg-12">
+        <h1 >List Of Recipients</h1>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+      
+<div class="filter-block d-flex align-items-center">
+  <label for="filter-select" class="mr-2">Filter by:</label>
+  <select id="filter-select" name="filter" [(ngModel)]="selectedFilter" (change)="filterDonataires()" class="form-control" aria-placeholder="Choose an option">
+    <option value="none" >Choose an option</option>
+    <option value="older">Older</option>
+    <option value="maxscore">High score</option>
+    <option value="SortScore">SortByHighscore</option>
+  </select>
+</div>
+          <button type="button" class="btn btn-primary btn-sm" (click)="SpringBatch()">Refresh your List     <i class="fa fa-refresh"></i></button>
+        </div>
+        
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Âge</th>
+              <th>Nombre d'enfants</th>
+              <th>Diabétique</th>
+              <th>Handicapé</th>
+              <th>Zone spécifique</th>
+              <th>Score</th>
+              <th  *ngIf="verif()== true" >Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of donatairesFiltered| paginate:{
+              itemsPerPage:tablesize,
+              currentPage:page,
+              totalItems:count}; let i=index">
+              <td>{{c.firstName}}</td>
+              <td>{{c.lastName}}</td>
+              <td>{{c.age}}</td>
+              <td>{{c.numberOfChildren}}</td>
+              <td>{{c.hasDiabetes}}</td>
+              <td>{{c.hasDisability}}</td>
+              <td>{{c.zoneSpecifique}}</td>
+              <td>{{c.scor}}</td>
+              <td *ngIf="verif()== true"><button type="button" class="btn btn-primary btn-sm " (click)="Affecter(c.id)"><i>Affectation</i></button></td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls     previousLabel="Perv"
+        nextLabel="Next"
+        (pageChange)="ontabledatachange($event)">
+      
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+
