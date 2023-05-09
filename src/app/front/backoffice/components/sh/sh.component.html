@@ -1,0 +1,11 @@
+
+<div>
+  <h1>Demo App</h1>
+  <full-calendar [options]="calendarOptions"></full-calendar>
+</div>
+<full-calendar [options]="calendarOptions">
+  <ng-template #eventContent let-arg>
+    <b>{{arg.timeText}}</b>
+    <i>{{arg.event.title}}</i>
+  </ng-template>
+</full-calendar>
