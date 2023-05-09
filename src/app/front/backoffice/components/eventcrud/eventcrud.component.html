@@ -1,0 +1,96 @@
+<div class="container mt-4" >
+  <mat-toolbar color="primary"></mat-toolbar>
+
+  <div mat-dialog-content class="content">
+      <h1>event Registation</h1>
+
+<form>
+  
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" class="form-control" id="nom" placeholder="Enter Name">
+
+  </div>
+
+  <div class="form-group">
+     
+    <label>datedebut</label>
+    <input input matInput [matDatepicker]="picker"[(ngModel)]="datedebut" [ngModelOptions]="{standalone: true}" class="form-control " id="datedeebut" placeholder="Enter datedebut">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+     
+  </div>
+
+    <div class="form-group">
+      <label>datefin</label>
+      <input input matInput [matDatepicker]="picker1"[(ngModel)]="datefin" [ngModelOptions]="{standalone: true}" class="form-control" id="datefin" placeholder="Enter datefin">
+      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+       
+    </div>
+
+   
+    
+
+
+
+    <div>
+      <input type="file" (change)="onFileSelected($event)">
+      <button type="button" (click)="uploadImage()">Upload</button>
+    </div>
+
+    
+    
+  
+  <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Submit</button>
+</form>
+</div>
+<div>
+
+  
+  <div class="container mt-4" >
+
+      
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="imed" #input>
+    </mat-form-field>
+
+
+
+
+<table class="table"  >
+    <thead>
+     <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+     
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">nom</th>
+        <th scope="col">datedebut</th>
+        <th scope="col">datefin</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let EventItem of EventArray">
+
+        <th scope="row">{{EventItem.id  }}</th>
+        <td>{{EventItem.nom  }}</td>
+        <td>{{EventItem.datedebut }}</td>
+        <td>{{EventItem.datefin }}</td>
+
+        <td>
+          <ng-container matColumnDef="action">
+          <button type="button" class="btn btn-success"mat-icon-button color="primary" (click)="setUpdate(EventItem)">Edit</button>
+          
+          <button type="button" class="btn btn-danger"button mat-icon-button color="warn" (click)="setDelete(EventItem)">Delete</button>
+        </ng-container>
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+  </div>
