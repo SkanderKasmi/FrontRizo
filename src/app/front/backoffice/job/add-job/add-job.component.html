@@ -1,0 +1,67 @@
+
+
+  
+  <body class="">
+    <div class="wrapper " style="margin-top: 11%;">
+   
+      <div class="main-panel">
+        <!-- Navbar -->
+        
+        <!-- End Navbar -->
+        <div class="content">
+          <div class="row">
+  
+            <div class="col-md-12">
+              <div class="card card-user">
+                <div class="card-header">
+                  <h5 class="card-title">Add Job</h5>
+                </div>
+                <div class="card-body">
+                  <form #h="ngForm" [formGroup]="jobForm" (ngSubmit)="submitJob()">
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <label class="form-label"  for="firstName">titre</label>
+                          <input type="text" formControlName="titre" type="text" id="titre" name="titre" class="form-control" required />
+                        
+                        </div>
+                      </div>
+                    </div>
+                   <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <label class="form-label"  for="firstName">Description</label>
+                          <input type="text" formControlName="description" type="description" id="Description" name="description" class="form-control" required />
+                        
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <label class="form-label"  for="firstName">skill</label>
+                          <input type="text" formControlName="skill" type="text" id="skill" name="skill" class="form-control" required />
+                        
+                        </div>
+                      </div>
+                    </div>
+                   
+                    
+                    <div class="row">
+                      <div class="update ml-auto mr-auto">
+                        <button type="submit" class="btn btn-primary btn-round"  [disabled]="jobForm.invalid">Add job</button>
+                      </div>
+                    </div>
+                  </form>
+
+                  
+  
+  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>

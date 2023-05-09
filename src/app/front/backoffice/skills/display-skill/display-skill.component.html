@@ -1,0 +1,43 @@
+
+<app-add-skill></app-add-skill>
+    <body>
+    <div class="bodyDash" >
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="card shadow-2-strong" style="background-color: #ffffff;">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <h1>Courses List</h1>
+                                
+                                <table class="table  mb-0">
+                                    <thead>
+                                        <tr>
+                                           
+                                            <th scope="col">title</th>
+                                     
+                                           
+                                       
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of filteredJob">
+                                            
+                                            <td>{{data.name}}</td>
+                                       
+                                        
+                                       
+                                           
+                                    </tbody>
+                                 
+                                </table>
+         
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    <app-footer></app-footer>

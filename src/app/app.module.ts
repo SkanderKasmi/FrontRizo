@@ -49,6 +49,17 @@ import { DonataireComponent } from './front/Personne/donataire/donataire.compone
 import { DisplayPersonneComponent } from './front/Personne/display-personne/display-personne.component';
 import { PaiementComponent } from './front/Donnation/paiement/paiement.component';
 import { HistoryDonnationComponent } from './front/Donnation/history-donnation/history-donnation.component';
+import { AddJobComponent } from './front/backoffice/job/add-job/add-job.component';
+import { DisplayJobComponent } from './front/backoffice/job/display-job/display-job.component';
+import { AddFormationComponent } from './front/backoffice/formation/add-formation/add-formation.component';
+import { DisplayFormationComponent } from './front/backoffice/formation/display-formation/display-formation.component';
+
+import { AddSkillComponent } from './front/backoffice/skills/add-skill/add-skill.component';
+import { DisplaySkillComponent } from './front/backoffice/skills/display-skill/display-skill.component';
+import { DisplayFrontFormationComponent } from './front/backoffice/formation/display-front-formation/display-front-formation.component';
+import { DisplayFrontJobComponent } from './front/backoffice/job/display-front-job/display-front-job.component'
+
+
 
 
 
@@ -79,6 +90,18 @@ import { HistoryDonnationComponent } from './front/Donnation/history-donnation/h
     DisplayPersonneComponent,
     PaiementComponent,
     HistoryDonnationComponent,
+    AddJobComponent,
+    DisplayJobComponent,
+    AddFormationComponent,
+    DisplayFormationComponent,
+
+  
+
+    AddSkillComponent,
+    DisplaySkillComponent,
+    DisplayFrontFormationComponent,
+    DisplayFrontJobComponent,
+ 
     
    
 

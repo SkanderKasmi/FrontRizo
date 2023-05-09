@@ -1,0 +1,45 @@
+
+      <div class="wrapper " style="margin-top: 11%;">
+     
+        <div class="main-panel">
+     
+          <div class="content">
+            <div class="row">
+    
+              <div class="col-md-12">
+                <div class="card card-user">
+                  <div class="card-header">
+                    <h5 class="card-title">Add skill</h5>
+                  </div>
+                  <div class="card-body">
+                    <form #h="ngForm" [formGroup]="skillForm" (ngSubmit)="submitJob()">
+                      <div class="row mb-4">
+                        <div class="col">
+                          <div class="form-outline">
+                            <label class="form-label"  for="firstName">name</label>
+                            <input type="text" formControlName="name" type="text" id="titre" name="name" class="form-control" required />
+                          
+                          </div>
+                        </div>
+                      </div>
+                     
+                     
+                      
+                      <div class="row">
+                        <div class="update ml-auto mr-auto">
+                          <button type="submit" class="btn btn-primary btn-round"  [disabled]="skillForm.invalid">Add skill</button>
+                        </div>
+                      </div>
+                    </form>
+  
+                    
+    
+    
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+            </div> 

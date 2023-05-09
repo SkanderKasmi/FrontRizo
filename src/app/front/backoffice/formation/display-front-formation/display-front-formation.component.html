@@ -1,0 +1,85 @@
+
+    <head> 
+        <title>
+            How to show multiple horizontal
+            images in Bootstrap card ?
+        </title> 
+          
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+      
+        <link rel="stylesheet" href= 
+    "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+          
+        <script src= 
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+        </script> 
+          
+        <script src= 
+    "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> 
+        </script> 
+          
+        <script src= 
+    "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> 
+        </script> 
+          
+        <style>
+          
+        /* Style pour les images dans les cartes */
+        .card-img-top {
+            object-fit: cover;
+            height: 250px;
+            max-width: 100%;
+        }
+        /* Style pour les titres des cartes */
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        /* Style pour les descriptions des cartes */
+        .card-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+    
+            img {
+                max-width: 100%;
+                max-height: 50%;
+                padding-top:10px;
+            }
+            h1 {
+                color: green;
+            }
+        </style>
+    </head> 
+      
+    <body style="margin-top: 11%;"> 
+        <h1 style="color:rgb(10, 10, 93);text-align:center; margin-top:-2%;"> 
+            Cours List 
+        </h1> 
+        <div class="card-group">
+            
+        <div class="container" >
+            
+                <!--bootstrap card with 3 horizontal images-->
+                <div class="row" style="padding: 5%;">
+                    <div class="card col-md-4"*ngFor="let data of filteredformation">
+                        <img class="card-img-top" src=
+                        "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190623192118/Left-Bar-DSA-Self.png">
+      
+                        <div class="card-body">
+                            <h3 class="card-title">Title: {{data.titre}}</h3>
+                            <p class="card-text">Description: {{data.description}}</p>
+                            <p class="card-text">Price: {{data.prix}} dt</p>
+                        </div>
+                    </div>
+      
+                
+                </div>
+            </div>
+        </div>
+    </body>
+    <app-footer></app-footer>
+
+
