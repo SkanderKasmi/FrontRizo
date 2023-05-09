@@ -1,0 +1,18 @@
+
+  /* Style pour les cellules contenant des dons de plus de 100$ */
+td[data-donation-amount="100+"] {
+  color: #00a6d6;
+  font-weight: bold;
+}
+
+/* Style pour les cellules contenant des dons de 50$ à 99$ */
+td[data-donation-amount="50-99"] {
+  color: #ff6600;
+  font-weight: bold;
+}
+
+/* Style pour les icônes de don */
+.icon-donation {
+  margin-right: 5px;
+  font-size: 18px;
+}

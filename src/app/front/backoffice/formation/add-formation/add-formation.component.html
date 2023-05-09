@@ -1,0 +1,73 @@
+
+<body class="">
+    <div class="wrapper " style="margin-top: 11%;">
+   
+      <div class="main-panel">
+        <!-- Navbar -->
+        
+        <!-- End Navbar -->
+        <div class="content">
+          <div class="row">
+  
+            <div class="col-md-12">
+              <div class="card card-user">
+                <div class="card-header">
+                  <h5 class="card-title">Add Category</h5>
+                </div>
+                <div class="card-body">
+                  <form #h="ngForm" [formGroup]="formationForm" (ngSubmit)="submitFormation()">
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <label class="form-label" for="titre">Titre</label>
+                          <input type="text" formControlName="titre" id="titre" name="titre" class="form-control" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <label class="form-label" for="prix">Price</label>
+                          <input type="text" formControlName="prix" id="prix" name="prix" class="form-control" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <label class="form-label" for="description">Description</label>
+                          <input type="text" formControlName="description" id="description" name="description" class="form-control" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <label class="form-label" for="dateDebut">Start Date</label>
+                          <input type="date" formControlName="dateDebut" id="dateDebut" name="dateDebut" class="form-control" required />
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-outline">
+                          <label class="form-label" for="dateFin">End Date</label>
+                          <input type="date" formControlName="dateFin" id="dateFin" name="dateFin" class="form-control" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="update ml-auto mr-auto">
+                        <button type="submit" class="btn btn-primary btn-round" [disabled]="formationForm.invalid">Add formation</button>
+                      </div>
+                    </div>
+                  </form>
+  
+  
+  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>

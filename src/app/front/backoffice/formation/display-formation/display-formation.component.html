@@ -1,0 +1,87 @@
+
+
+<body>
+<div class="bodyDash" style="margin-top: 18rem;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card shadow-2-strong" style="background-color: #ffffff;">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <h1>Courses List</h1>
+                            <div class="col">
+                                <div class="form-outline">
+                                  <label class="mr-sm-8" for="dateDebut">Start Date</label>
+                                  <input type="date"[(ngModel)]="fromDate" id="dateDebut" name="dateDebut" class="form-control" required />
+                                  <label class="form-label" for="dateFin">End Date</label>
+                                  <input type="date" [(ngModel)]="toDate" id="dateFin" name="dateFin" class="form-control" required />
+                                </div>
+                              </div>
+                              <button (click)="getformationbdates()" class="btn btn-primary">Search</button>
+                            
+                            <button (click)="sortformation()" style="margin: 5px;" type="button" class="btn btn-primary btn-sm px-3">
+                                <i class="fas fa-arrow-down" style="color: #4109c5;"></i>
+                            </button>
+                            <table class="table  mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault" />
+                                            </div>
+                                        </th>
+                                        <th scope="col">title</th>
+                                        <th scope="col">description</th>
+                                        <th scope="col">price</th>
+                                        <th scope="col">Actions</th>
+                                   
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of filteredformation">
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault1" checked />
+                                            </div>
+                                        </th>
+                                        <td>{{data.titre}}</td>
+                                        <td>{{data.description}}</td>
+                                        <td data-donation-amount="50-99">{{data.prix}} <i class="fas fa-donate icon-donation"></i></td>
+                                        <td>
+                                
+                                            <button (click)="deleteformation(data.id)" style="margin: 5px;" type="button" class="btn btn-danger btn-sm px-3">
+                                                <i class="fas fa-user-times" style="color: #ffffff;"></i>
+                                            </button>
+                                            
+                                           
+                                        </td>
+                                        <td>
+                                       <!-- <select class="form-control mr-sm-2 flex-grow-1" name="mySelect" multiple [(ngModel)]="selectedjobid" >
+                                            <option *ngFor="let c of filteredjob" value={{c.id}} >{{c.titre}}</option>
+                                            
+                                          </select> -->
+                                          <label for="pet-select">Choose a job:</label>
+
+                                          <select name="pets" id="pet-select"  [(ngModel)]="selectedjobid">
+                                              <option value="">--Please choose an option--</option>
+                                              <option *ngFor="let c of filteredjob" value={{c.id}}>{{c.titre}}</option>
+                                              
+                                          </select>
+                                        </td>
+                                        <td ><button type="button" class="btn btn-primary btn-sm " (click)="Affecter(data.id)"><i>Affectation</i></button></td>
+                                    </tr>
+                                </tbody>
+                             
+                            </table>
+     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<app-footer></app-footer>

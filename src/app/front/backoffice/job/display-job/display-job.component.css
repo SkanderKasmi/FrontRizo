@@ -1,0 +1,32 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination > * {
+    margin: 0 5px;
+  }
+  
+  .pagination .previous,
+  .pagination .next {
+    font-weight: bold;
+  }
+  
+  .pagination li > a,
+  .pagination li > span {
+    padding: 5px 10px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    color: #333333;
+  }
+  
+  .pagination li > a:hover,
+  .pagination li > a:focus,
+  .pagination li > span:hover,
+  .pagination li > span:focus {
+    background-color: #eeeeee;
+    color: #333333;
+  }
