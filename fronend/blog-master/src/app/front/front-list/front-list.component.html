@@ -1,0 +1,37 @@
+<div class="container" style="margin-top: 200px">
+  <div class="list row" style="margin-top: 200px;">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ol style="--length: 5" role="list" >
+
+
+  <li style="--i: 1" *ngFor="let topic of topics " >
+    <h3 >
+      {{ topic.title }}
+    </h3>
+      <p>
+
+      {{topic.description}}</p>
+  </li>
+
+</ol>
+</div>

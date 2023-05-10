@@ -1,0 +1,45 @@
+<app-nav></app-nav>
+
+<div class="posts-container" style="padding: 90px;">
+  <div class="post" *ngFor="let p of listofpost; let indexOfelement=index; " style="padding: 60;">
+    <div class="post-image">
+      <img  class="img" src="http://localhost:8089/File/file/{{p?.files?.id}}" alt="Post Image"  style="text-align: center;">
+    </div>
+    <div class="post-content">
+      <h2 class="post-title">{{p.title}}</h2>
+      <p class="post-text">{{p.content}}</p>
+      <div class="post-details">
+        <span class="post-date">Created: {{p.created_At}}</span>
+        <button class="btn btn-like" (click)="addlike(p)"><i class="fa fa-thumbs-up"></i> {{nbrlike[indexOfelement]}}</button>
+        <button class="btn btn-dislike" (click)="adddislike(p)"><i class="fas fa-thumbs-down"></i>Dislike {{nbrdislike[indexOfelement]}}</button>
+        <button class="btn btn-edit" [routerLink]="['
+        editPost/', p.postId ]"><i class="fa fa-pencil"></i></button>
+      </div>
+      <ul class="comments-list">
+        <li *ngFor="let c of p.comment">
+          <div class="comment-box">
+            <div class="comment-head">
+              <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Ghofrane Ferchichi</a></h6>
+              <span class="comment-date">Hace 20 minutos</span>
+              <i class="fa fa-reply"></i>
+              <i class="fa fa-heart"></i>
+            </div>
+            <div class="comment-content">
+              {{c.content}}
+            </div>
+          </div>
+        </li>
+      </ul>
+      <form [formGroup]="cmtform">
+        <div class="input-group">
+          <textarea formControlName="content" type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+          <div class="input-group-append">
+            <button class="btn btn-comment" type="button" (click)="ajouter(p.postId)">Comment</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

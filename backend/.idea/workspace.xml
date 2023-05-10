@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ff8c03c0-e8ae-45f9-a0f3-d7ff3dbb8134" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="com.haulmont.jpb.JpaRepository" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2PHSTKOutDAmdHJDT9hwMCRYNkE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Ti PIII/Send-Email-master(3)&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5cbf947856d4679b7867ea4c0bc33cee&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Ti PIII\blog-front-main\blog-front-main\ThundersPi-SpringBoot\src\main\java\com\roky\thunderspi\services" />
+      <recent name="G:\Ti PIII\blog-front-main\blog-front-main\ThundersPi-SpringBoot\src\main\java\com\roky\thunderspi\entities" />
+      <recent name="G:\Ti PIII\blog-front-main\blog-front-main\ThundersPi-SpringBoot\src\main\java\com\roky\thunderspi\controllers" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.roky.thunderspi.exception" />
+      <recent name="com.roky.thunderspi.repositories" />
+      <recent name="com.roky.thunderspi.config" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ThundersPiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ThundersPi" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.roky.thunderspi.ThundersPiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff8c03c0-e8ae-45f9-a0f3-d7ff3dbb8134" name="Changes" comment="" />
+      <created>1683112520826</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683112520826</updated>
+      <workItem from="1683112522088" duration="46000" />
+      <workItem from="1683195486717" duration="168000" />
+      <workItem from="1683214472507" duration="4020000" />
+      <workItem from="1683225996444" duration="172000" />
+      <workItem from="1683234212720" duration="2920000" />
+      <workItem from="1683288384371" duration="1004000" />
+      <workItem from="1683296995439" duration="252000" />
+      <workItem from="1683464324616" duration="11299000" />
+      <workItem from="1683496685323" duration="3347000" />
+      <workItem from="1683554630688" duration="111000" />
+      <workItem from="1683555313334" duration="628000" />
+      <workItem from="1683557535103" duration="4809000" />
+      <workItem from="1683570100554" duration="4026000" />
+      <workItem from="1683587124921" duration="699000" />
+      <workItem from="1683629802005" duration="2849000" />
+      <workItem from="1683643075211" duration="9000" />
+      <workItem from="1683643147549" duration="1189000" />
+      <workItem from="1683646612418" duration="2884000" />
+      <workItem from="1683671408996" duration="2234000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
