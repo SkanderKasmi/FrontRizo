@@ -1,5 +1,5 @@
 import { Component, OnInit ,Inject} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 
 
@@ -45,8 +45,9 @@ export class EventcrudComponent implements OnInit {
  
   getAllEvent()
   {
+    const token = localStorage.getItem('token');
     
-    this.http.get("http://localhost:9090/events/liste")
+    this.http.get("http://localhost:8082/events/liste",{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})})
   
     .subscribe((resultData: any)=>
     {
@@ -67,8 +68,8 @@ export class EventcrudComponent implements OnInit {
       "datefin" : this.datefin ,
       "nom" : this.nom ,
     };
- 
-    this.http.post("http://localhost:9090/events/add",bodyData).subscribe((resultData: any)=>
+    const token = localStorage.getItem('token');
+    this.http.post("http://localhost:8082/events/add",bodyData,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})}).subscribe((resultData: any)=>
     {
         console.log(resultData);
         alert("Events Registered Successfully")
@@ -95,8 +96,8 @@ export class EventcrudComponent implements OnInit {
       "datedebut" : this.datedebut,
       "datefin" : this.datefin,
     };
-    
-    this.http.put("http://localhost:9090/events/update",bodyData).subscribe((resultData: any)=>
+    const token = localStorage.getItem('token');
+    this.http.put("http://localhost:8082/events/update",bodyData,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})}).subscribe((resultData: any)=>
     {
         console.log(resultData);
         alert("Events Registered Updateddd")
@@ -125,9 +126,9 @@ export class EventcrudComponent implements OnInit {
  
   setDelete(data: any)
   {
+    const token = localStorage.getItem('token');
     
-    
-    this.http.delete("http://localhost:9090/events/delete"+ "/"+ data.id).subscribe((resultData: any)=>
+    this.http.delete("http://localhost:8082/events/delete"+ "/"+ data.id,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})}).subscribe((resultData: any)=>
     {
         console.log(resultData);
         alert("Events Deleted")
@@ -140,22 +141,7 @@ export class EventcrudComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  uploadImage() {
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('image', this.selectedFile, this.selectedFile.name);
-      this.http.post('http://localhost:9090/image/upload-image', formData)
-        .subscribe(res => {
-          console.log(res);
-          // Handle the response from the server
-        }, error => {
-          console.error(error);
-          // Handle any errors that occurred during the request
-        });
-    }
-
-
-  }
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

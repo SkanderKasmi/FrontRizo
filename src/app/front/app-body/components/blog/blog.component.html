@@ -12,7 +12,7 @@
       <div class="row " >
         <div class="col-md-2 no-trans">
           <span class="text-dark  font-medium">{{ bl.createdAt }}</span>
-          <h6 class="card-subtitle font-12 mt-1">User</h6>
+          <h6 class="card-subtitle font-12 mt-1">{{bl.user.firstName}}{{bl.user.lastName}}</h6>
         </div>
         <div class="col-md-7 no-trans">
           <h2 class="font-medium cursor-pointer" style="margin-bottom: 1rem;" (click)="viewDetail(bl.idartcile)">

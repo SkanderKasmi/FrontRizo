@@ -1,6 +1,7 @@
 <div style="margin-top: 16rem; " class="containerng ">
 <button class="float-right btn btn-primary" mat-raised-button (click)="openDialog()"><mat-icon>note_add</mat-icon></button>
 
+
 <mat-tab-group  (selectedTabChange)="selectedTabValue($event)">
   <mat-tab   label="Article settings" >
 
@@ -10,34 +11,34 @@
   <input matInput  (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
 </mat-form-field>
 
-<table mat-table   [dataSource]="datasource" class="mat-elevation-z8 w-100 text-dark bg-light" >  
+<table mat-table   [dataSource]="datasource" class="mat-elevation-z8 w-100 " >  
 
   <!-- Position Column -->
   <ng-container matColumnDef="idartcile" >
-    <th mat-header-cell *matHeaderCellDef class="text-dark">  idartcile. </th>
-    <td mat-cell *matCellDef="let article " class="text-dark">{{article.idartcile}} </td>
+    <th mat-header-cell *matHeaderCellDef >  idartcile. </th>
+    <td mat-cell *matCellDef="let article " >{{article.idartcile}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef class="text-dark"> title </th>
-    <td mat-cell *matCellDef=" let article " class="text-dark"> {{article.title}} </td>
+    <th mat-header-cell *matHeaderCellDef > title </th>
+    <td mat-cell *matCellDef=" let article " > {{article.title}} </td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="slug">
-    <th mat-header-cell *matHeaderCellDef class="text-dark"> slug </th>
-    <td mat-cell *matCellDef="let article " class="text-dark"> {{article.slug}} </td>
+    <th mat-header-cell *matHeaderCellDef > slug </th>
+    <td mat-cell *matCellDef="let article " > {{article.slug}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef class="text-dark"> Description </th>
-    <td mat-cell *matCellDef="let article "class="text-dark"> {{article.description}} </td>
+    <th mat-header-cell *matHeaderCellDef > Description </th>
+    <td mat-cell *matCellDef="let article "> {{article.description}} </td>
   </ng-container>
   <ng-container matColumnDef="body">
-    <th mat-header-cell *matHeaderCellDef class="text-dark"> body </th>
-    <td mat-cell *matCellDef="let article "class="text-dark"> {{article.body}} </td>
+    <th mat-header-cell *matHeaderCellDef > body </th>
+    <td mat-cell *matCellDef="let article " ><textarea style="width: 470px;">{{article.body}} </textarea></td>
   </ng-container>
 
   <ng-container matColumnDef="Actions">
@@ -47,7 +48,7 @@
         <button  style="margin: 5px;" type="button" class="btn btn-danger btn-sm px-3 " (click)="deleteArticle(article.idartcile)">
           <i class="fas fa-user-times" style="color: #ffffff;"></i>
       </button>
-      <button  style="margin: 5px;" type="button" class="btn btn-primary btn-sm px-3 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button  style="margin: 5px;" type="button" class="btn btn-primary btn-sm px-3 " (click)="openDialog2(article.idartcile)" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fas fa-wrench" style="color: #ffffff;"></i>
       </button>
     </div>

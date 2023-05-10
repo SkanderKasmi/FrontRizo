@@ -61,11 +61,15 @@ export class ServiceblogService {
   }
   public DeleteArticle(articleId:number): Observable<void>{
     const token = localStorage.getItem('token');
-    return  this.http.delete<void>(`${this.apiServerUrl}article/delete/${articleId}`,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
+    return  this.http.put<void>(`${this.apiServerUrl}article/delete/${articleId}`,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
   }
   public findbyidArticle(articleId:number): Observable<Article>{
     const token = localStorage.getItem('token');
     return  this.http.get<Article>(`${this.apiServerUrl}article/find/${articleId}`,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
+  }
+  public findArticle(articleId:number): Observable<Article>{
+    const token = localStorage.getItem('token');
+    return  this.http.get<Article>(`${this.apiServerUrl}article/find/artcile/${articleId}`,{headers:new HttpHeaders({'Content-Type' : 'application/json', 'Authorization' : `Bearer ${token}`})});
   }
   public findAllCommentsCli(articleId:number):Observable<Commentaire[]>{
     const token = localStorage.getItem('token');

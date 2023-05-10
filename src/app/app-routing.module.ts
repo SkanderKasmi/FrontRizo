@@ -29,6 +29,8 @@ import { DisplayFrontJobComponent } from './front/backoffice/job/display-front-j
 import { DisplayFormationComponent } from './front/backoffice/formation/display-formation/display-formation.component';
 import { DisplayFrontFormationComponent } from './front/backoffice/formation/display-front-formation/display-front-formation.component';
 import { EventcrudComponent } from './front/backoffice/components/eventcrud/eventcrud.component';
+import { ShComponent } from './front/backoffice/components/sh/sh.component';
+import { AccueilComponent } from './front/app-body/components/accueil/accueil.component';
 
 
 
@@ -39,15 +41,18 @@ const routes: Routes = [
 {path:'login',component:LoginComponent},
 {path:'register',component:RegisterComponent},
 {path:'app',component:AppBodyComponent,canActivate:[UserGuard],children:[
+  {path:'',redirectTo:'User',pathMatch:'full'},
+  {path:'User',component:AccueilComponent}, 
   {path:'profile',component:ProfileComponent},
   {path: 'articles' , component:BlogComponent},
-  {path:'Donation',component:AddDonationComponent },
-  {path:'donnation/:id', component: AddDonationComponent },
-  {path:'add',component:AddDonationComponent},
+  {path:'list',component:AddDonationComponent },
+  {path:'listD/:id', component: AddDonationComponent },
+  {path:'listD',component:AddDonationComponent},
   {path:'histDon', component:HistoryDonnationComponent },
   {path:'viewformation',component:DisplayFrontFormationComponent},
   {path:'viewjob',component:DisplayFrontJobComponent},
   {path:'viewskill',component:DisplaySkillComponent},
+  {path: 'event' , component:ShComponent},
   
   
   {path : 'articlesdetail/:idartcile',component:BlogDetailComponent},

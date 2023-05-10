@@ -36,7 +36,7 @@
 
     <div>
       <input type="file" (change)="onFileSelected($event)">
-      <button type="button" (click)="uploadImage()">Upload</button>
+      
     </div>
 
     
@@ -94,3 +94,28 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 
   </div>
+  <div class="container" style="margin-top: 80px;">
+    <div class="col-md-4" *ngFor="let EventItem of EventArray">
+  <mat-card >
+    <div class="image" >
+      <img src="https://www.majelievenements.com/wp-content/uploads/2020/05/Green-and-Beige-Tropical-Moms-Collection-Youtube-Channel-Art-min-980x551.jpg" alt="...">
+    </div>
+    
+    <mat-card-content> <div class="author"  >
+      <h2 mat-card-title>{{EventItem.nom}}    </h2>
+    </div>
+    <div class="author">
+      <p mat-card-subtitle>{{EventItem.datedebut}} - {{EventItem.datefin}}</p>
+    </div>
+    <div class="author">
+      <p mat-card-content>{{EventItem.sescription}} </p>
+    </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="setUpdate(EventItem)">Edit</button>
+      <button mat-button color="warn" (click)="setDelete(EventItem)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>   
+  </div>
+  

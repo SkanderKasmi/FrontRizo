@@ -25,7 +25,7 @@ import { ProfileComponent } from './front/profile/profile.component';
 import { AdminuserComponent } from './front/backoffice/components/adminuser/adminuser.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogComponent } from './front/app-body/components/blog/blog.component';
-import { ArticleAdminComponent, PopupAdd } from './front/backoffice/components/article-admin/article-admin.component';
+import { ArticleAdminComponent, PopupAdd, Popupdate } from './front/backoffice/components/article-admin/article-admin.component';
 import { BlogDetailComponent } from './front/app-body/components/blog/blog-detail/blog-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -60,6 +60,8 @@ import { DisplayFrontFormationComponent } from './front/backoffice/formation/dis
 import { DisplayFrontJobComponent } from './front/backoffice/job/display-front-job/display-front-job.component'
 import { ShComponent } from './front/backoffice/components/sh/sh.component';
 import { EventcrudComponent } from './front/backoffice/components/eventcrud/eventcrud.component';
+import { AccueilComponent } from './front/app-body/components/accueil/accueil.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -98,12 +100,12 @@ import { EventcrudComponent } from './front/backoffice/components/eventcrud/even
     DisplayFormationComponent,
     ShComponent,
     EventcrudComponent,
-     
-
+    Popupdate,
     AddSkillComponent,
     DisplaySkillComponent,
     DisplayFrontFormationComponent,
     DisplayFrontJobComponent,
+    AccueilComponent,
  
     
    
@@ -112,6 +114,7 @@ import { EventcrudComponent } from './front/backoffice/components/eventcrud/even
  
   ],
   imports: [
+    MatCardModule,
     MatStepperModule,
     MatSnackBarModule,
     MatPaginatorModule,

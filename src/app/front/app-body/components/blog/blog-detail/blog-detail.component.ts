@@ -26,8 +26,10 @@ export class BlogDetailComponent implements OnInit {
   lovecountpost:number=0;
   likecountpost:number=0;
   dislikecountpost:number=0;
-  name:string= ";"
+  name:string= "";
+  lastname:string="";
   first:string="";
+  firstname:string="";
   title:string='';
   react : React = new React;
   constructor(activatedRouter: ActivatedRoute, public service: ServiceblogService, public router: Router, private jwtHelper:JwtHelperService) {
@@ -35,14 +37,20 @@ export class BlogDetailComponent implements OnInit {
     
     
   }
+  hile!:boolean;
   
 
   ngOnInit(): void {
+    const token : any = localStorage.getItem('token');
+    const decodedToken =this.jwtHelper.decodeToken(token);
+    const id= decodedToken.userId;
+    console.log(id);
      this.service.findbyidArticle(this.id).subscribe((r:any)=>{
       this.article=r;  
       this.title=this.article.title;
       this.name=this.article.user.lastName;
       this.first=this.article.user.firstName;
+      if(this.article.idartcile==id){this.hile==false}else{this.hile==true}
       
      
     this.service.findAllCommentsCli(this.id).subscribe((d:any)=>this.comments=d);

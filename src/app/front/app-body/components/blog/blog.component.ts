@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { PopupAdd } from 'src/app/front/backoffice/components/article-admin/article-admin.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -18,6 +19,8 @@ import { PopupAdd } from 'src/app/front/backoffice/components/article-admin/arti
 export class BlogComponent implements OnInit {
   blogsDetail: Blog[] = [];
   listArticles : Article[]= [];
+  name:string= ";"
+  first:string="";
   count:number=1;
   constructor(
     private jwtHelper: JwtHelperService,
@@ -28,9 +31,14 @@ export class BlogComponent implements OnInit {
   ) {
     this.service.showEdit = false;
   }
+  dataSource:any;
 
   ngOnInit(): void {
-      this.service.getArticles().subscribe((d: any) => (this.listArticles = d));
+      this.service.getArticles().subscribe((d: any) =>{
+        this.listArticles = d;
+        this.dataSource = new MatTableDataSource(this.listArticles)
+        
+      });
       const token : any = localStorage.getItem('token');
      const decodedToken =this.jwtHelper.decodeToken(token);
      const id= decodedToken.userId;
@@ -56,5 +64,19 @@ export class BlogComponent implements OnInit {
      this.service.showEdit = true;
 
     this.router.navigate(['/app/articlesdetail', idartcile]);
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  labelName:any;
+  selectedTabValue(event:any){
+    console.log(event);
+    this.labelName = event.tab.textLabel;
+    console.log(this.labelName)
   }
 }

@@ -7,6 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { ServiceblogService } from 'src/app/front/app-body/components/blog/blog-service.service';
 import { Article } from 'src/app/front/models/ArticleModels/article';
 import { Commentaire } from 'src/app/front/models/ArticleModels/commentaire';
+import { RegisterCredentials } from 'src/app/front/models/register-credentials';
 import { ArticleService } from 'src/app/front/service/ArticleServices/Articles.service';
 import Swal from 'sweetalert2';
 const titles:string[]=[]
@@ -95,6 +96,14 @@ export class ArticleAdminComponent implements OnInit  {
      
     });
   }
+  openDialog2(id:any): void {
+    const dialogRef = this.dialog.open(Popupdate,id);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+    });
+  }
   selectedTabValue(event:any){
     console.log(event);
     this.labelName = event.tab.textLabel;
@@ -128,7 +137,83 @@ export class ArticleAdminComponent implements OnInit  {
 //     count:count,
 
 // };
+  @Component({
+    selector:'popupdate',
+    templateUrl: 'Popupdate.html',
+  })
+  export class Popupdate implements OnInit{
+     idt:number=0;
+     creat:Date=new Date;
+    updat:Date=new Date;
+    co:number=0;
+    tag:string='';
+    use:any;
+    data:Article={
+      idartcile:0,
+      title:'',
+      slug:'',
+      body:'',
+      description:'',
+      createdAt:new Date,
+      updatedat:new Date,
+      count:0,
+      tagList:'',
+      user:new RegisterCredentials,
+    }
+    tilearticle:string='';
+    
+    
+    constructor(
+      public dialogRef: MatDialogRef<Popupdate>,private dataService:ServiceblogService,private jwtHelper:JwtHelperService) {this.id}
+    ngOnInit(): void {
+      this.dataService.findArticle(this.id).subscribe((d:Article)=>{
+        this.data=d;
+        this.idt=d.idartcile;
+        this.creat=d.createdAt;
+        this.updat=d.updatedat;
+        this.co=d.count;
+        this.tag=d.tagList;
+        this.use=d.user;
+      })
+    }
+  
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+     token : any = localStorage.getItem('token');
+     decodedToken =this.jwtHelper.decodeToken(this.token);
+     id:number= this.decodedToken.userId;
+     
+  
+    onSubmit() {
+      this.dataService.addArticle(this.data, this.id  ).subscribe(response => {
+        console.log(response);
+        
+        this.tilearticle=this.data.title;
+        console.log(this.tilearticle);
+       
 
+        // Reset the form
+        console.log(this.data)
+        this.data = {
+          idartcile:this.idt,
+          title: '',
+          slug: '',
+          body:'',
+          description:'',
+          createdAt:this.creat,
+          updatedat:this.updat,
+          count:this.co,
+          tagList:this.tag,
+          user:this.use,
+          
+        };
+      
+      });
+      
+    }
+
+  }
     
     
   // };
@@ -203,6 +288,8 @@ export class ArticleAdminComponent implements OnInit  {
          );
         return this.file;
       }
+
+
     }
   
   
